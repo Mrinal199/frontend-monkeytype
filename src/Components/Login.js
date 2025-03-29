@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <div style={styles.container}>
-      <h2>Login</h2>
+      <h3>Get ready for the typing test!</h3>
       {error && <p style={styles.error}>{error}</p>}
       <form onSubmit={handleLogin} style={styles.form}>
         <input
