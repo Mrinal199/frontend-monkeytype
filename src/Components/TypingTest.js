@@ -133,7 +133,6 @@ const TypingTest = ({ token }) => {
             position: "absolute",
             width: "100%",
             height: "100%",
-            
             color: "gray",
             whiteSpace: "pre-wrap",
             pointerEvents: "none", // Prevent clicks
@@ -158,8 +157,7 @@ const TypingTest = ({ token }) => {
             marginTop: "10px",
             paddingLeft: "10px",
             background: "transparent",
-            color: "transparent", // Hide text
-            caretColor: "white", // Keep caret visible
+            color: "transparent",
             border: "1px solid #333",
             position: "relative",
             zIndex: 1,
