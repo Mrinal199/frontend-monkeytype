@@ -11,8 +11,8 @@ const Results = () => {
       <h1>Typing Test Results</h1>
       <p style={{ fontSize: "1.5rem" }}>Speed: {wpm} WPM</p>
       <p style={{ fontSize: "1.5rem" }}>Accuracy: {accuracy}%</p>
-      <p style={{ fontSize: "1.2rem" }}>Total Errors: {errors}</p>
-      <p style={{ fontSize: "1.2rem" }}>Correct Characters Typed: {correctChars}</p>
+      <p style={{ fontSize: "1.2rem", color:"#dc3545"}}>Total Errors: {errors}</p>
+      <p style={{ fontSize: "1.2rem", color:"#28a745" }}>Correct Characters Typed: {correctChars}</p>
 
       <button
         onClick={() => navigate("/")}
