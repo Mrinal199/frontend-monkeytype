@@ -78,7 +78,7 @@ const TypingTest = ({ token }) => {
       .map((char, index) => {
         let color = "gray"; // Default remaining text
         if (index < input.length) {
-          color = input[index] === char ? "blue" : "red";
+          color = input[index] === char ? "white" : "red";
         }
         return `<span style="color:${color}">${char}</span>`;
       })
