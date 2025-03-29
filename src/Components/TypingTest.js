@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { saveSession } from "./apis";
+import "./TypingTest.css";
 
 const TypingTest = ({ token }) => {
   const quotesList = [
@@ -132,7 +133,7 @@ const TypingTest = ({ token }) => {
             position: "absolute",
             width: "100%",
             height: "100%",
-            fontSize: "1.2rem",
+            
             color: "gray",
             whiteSpace: "pre-wrap",
             pointerEvents: "none", // Prevent clicks
@@ -140,6 +141,7 @@ const TypingTest = ({ token }) => {
             background: "#1e1e1e",
             border: "1px solid #333",
           }}
+          className="typing-area"
         ></div>
 
         {/* Transparent textarea to capture user input */}
@@ -168,7 +170,7 @@ const TypingTest = ({ token }) => {
         />
       </div>
 
-      <p style={{ fontSize: "1.2rem", marginTop: "5%" }}>Time left: {time}s</p>
+      <p style={{ fontSize: "1.2rem", marginTop: "28vh" }}>Time left: {time}s</p>
       {/* <button
         onClick={handleSubmit}
         disabled={time > 0}
