@@ -187,8 +187,9 @@ const TypingTest = ({ token }) => {
           padding: "10px 20px",
           fontSize: "1rem",
           cursor: "pointer",
-          background: "lightgreen",
-          borderRadius:"80px"
+          color:"white",
+          background: "#25369d",
+          borderRadius: "80px",
         }}
       >
         {/* <RefreshIcon /> */}
@@ -196,9 +197,10 @@ const TypingTest = ({ token }) => {
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
+          color="white"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="black"
+          stroke="white"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -216,7 +218,9 @@ const TypingTest = ({ token }) => {
           padding: "10px 20px",
           fontSize: "1rem",
           cursor: "pointer",
-          background: "lightblue",
+          background: "#25369d",
+          borderRadius: "8px",
+          color: "white",
         }}
       >
         LogOut

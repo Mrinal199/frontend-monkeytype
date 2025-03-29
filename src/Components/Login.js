@@ -128,9 +128,9 @@ const styles = {
   },
   form: { display: "flex", flexDirection: "column" },
   input: { margin: "10px 0", padding: "8px", fontSize: "16px" },
-  button: { padding: "10px", background: "#28a745", color: "#fff", border: "none", cursor: "pointer" },
+  button: { padding: "10px", background: "#28a745", color: "#fff", border: "none", cursor: "pointer", borderRadius:"8px" },
   error: { color: "red" },
-  signupButton: { marginTop: "10px", width:"100%", background: "#007bff", color: "#fff", padding: "8px", border: "none", cursor: "pointer" },
+  signupButton: { marginTop: "10px", width:"100%", background: "#007bff", color: "#fff", padding: "8px", border: "none", cursor: "pointer", borderRadius:"8px"  },
   modalOverlay: {
     position: "fixed",
     top: 0, left: 0, width: "100%", height: "100%",
@@ -139,7 +139,7 @@ const styles = {
   modal: {
     background: "#fff", padding: "20px", borderRadius: "8px", textAlign: "center", width: "320px"
   },
-  closeButton: { marginTop: "10px", background: "#dc3545", color: "#fff", padding: "8px", border: "none", cursor: "pointer" }
+  closeButton: { marginTop: "10px", background: "#dc3545", color: "#fff", padding: "8px", border: "none", cursor: "pointer" , borderRadius:"8px", width:"50%", }
 };
 
 export default Login;
