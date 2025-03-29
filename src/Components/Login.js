@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { login, signup } from "../api"; // Import API functions
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false); // Track SignUp Modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [signupData, setSignupData] = useState({ username: "", email: "", password: "" });
   const [signupError, setSignupError] = useState("");
   
@@ -18,7 +18,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("https://type-speed-check-1.onrender.com", { email, password });
+      const res = await login({ email, password }); // Use login function
       const { token } = res.data;
 
       // ✅ Save Token in Local Storage
@@ -38,9 +38,7 @@ const Login = () => {
     setSignupError("");
 
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", signupData, {
-        headers: { "Content-Type": "application/json" },
-      });
+      await signup(signupData); // Use signup function
 
       // ✅ Close Modal and Reset Data
       setIsModalOpen(false);
