@@ -18,7 +18,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const res = await axios.post("https://type-speed-check-1.onrender.com", { email, password });
       const { token } = res.data;
 
       // ✅ Save Token in Local Storage
