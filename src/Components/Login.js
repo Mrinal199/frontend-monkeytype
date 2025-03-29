@@ -12,27 +12,23 @@ const Login = () => {
   
   const navigate = useNavigate();
 
-  // 🟢 Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const res = await login({ email, password }); // Use login function
+      const res = await login({ email, password }); 
       const { token } = res.data;
 
-      // ✅ Save Token in Local Storage
       localStorage.setItem("authToken", token);
       console.log("Saved Token:", localStorage.getItem("authToken"));
 
-      // ✅ Redirect to Typing Test UI
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed. Try again.");
     }
   };
 
-  // 🟢 Handle Sign Up
   const handleSignup = async (e) => {
     e.preventDefault();
     setSignupError("");
@@ -40,7 +36,6 @@ const Login = () => {
     try {
       await signup(signupData); // Use signup function
 
-      // ✅ Close Modal and Reset Data
       setIsModalOpen(false);
       setSignupData({ username: "", email: "", password: "" });
       alert("User registered successfully! Please login.");
@@ -73,10 +68,8 @@ const Login = () => {
         <button type="submit" style={styles.button}>Login</button>
       </form>
 
-      {/* 🟢 Open Sign Up Modal */}
       <button onClick={() => setIsModalOpen(true)} style={styles.signupButton}>Sign Up</button>
 
-      {/* 🟢 Sign Up Modal */}
       {isModalOpen && (
         <div style={styles.modalOverlay}>
           <div style={styles.modal}>
@@ -117,7 +110,6 @@ const Login = () => {
   );
 };
 
-// 🟢 Styles
 const styles = {
   container: {
     width: "300px",
