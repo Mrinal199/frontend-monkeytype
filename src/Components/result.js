@@ -16,7 +16,7 @@ const Results = () => {
 
       <button
         onClick={() => navigate("/")}
-        style={{ padding: "10px 20px", fontSize: "1rem", cursor: "pointer", marginTop: "20px" }}
+        style={{ padding: "10px 20px", fontSize: "1rem", cursor: "pointer", marginTop: "20px" , borderRadius:"8px", background:"#25369d", color:"white"}}
       >
         Try Again
       </button>

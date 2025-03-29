@@ -167,64 +167,68 @@ const TypingTest = ({ token }) => {
           }}
         />
       </div>
-      <p style={{ fontSize: "1.2rem", marginTop: "5%" }}>Time left: {time}s</p>
-      {/* <button
+      <div style={{display:"flex", justifyContent:"space-around", alignItems:"flex-end"}}>
+        <p style={{ fontSize: "1.2rem", marginTop: "5%" }}>
+          Time left: {time}s
+        </p>
+        {/* <button
         onClick={handleSubmit}
         disabled={time > 0}
         style={{ padding: "10px 20px", fontSize: "1rem", cursor: "pointer" }}
       >
         Submit
       </button> */}
-      <button
-        onClick={() => {
-          setText(getRandomQuote());
-          setInput("");
-          setErrors(0);
-          setCorrectChars(0);
-          setHasStarted(false);
-        }}
-        style={{
-          padding: "10px 20px",
-          fontSize: "1rem",
-          cursor: "pointer",
-          color:"white",
-          background: "#25369d",
-          borderRadius: "80px",
-        }}
-      >
-        {/* <RefreshIcon /> */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          color="white"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+        <button
+          onClick={() => {
+            setText(getRandomQuote());
+            setInput("");
+            setErrors(0);
+            setCorrectChars(0);
+            setHasStarted(false);
+          }}
+          style={{
+            padding: "10px 20px",
+            fontSize: "1rem",
+            cursor: "pointer",
+            color: "white",
+            background: "#25369d",
+            borderRadius: "80px",
+          }}
         >
-          <polyline points="23 4 23 10 17 10"></polyline>
-          <polyline points="1 20 1 14 7 14"></polyline>
-          <path d="M3.51 9a9 9 0 0115.02-5.36L23 10"></path>
-          <path d="M20.49 15a9 9 0 01-15.02 5.36L1 14"></path>
-        </svg>
-      </button>
-      <br /> <br /> <br />
-      <button
-        onClick={handleLogout}
-        style={{
-          padding: "10px 20px",
-          fontSize: "1rem",
-          cursor: "pointer",
-          background: "#25369d",
-          borderRadius: "8px",
-          color: "white",
-        }}
-      >
-        LogOut
-      </button>
+          {/* <RefreshIcon /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            color="white"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0115.02-5.36L23 10"></path>
+            <path d="M20.49 15a9 9 0 01-15.02 5.36L1 14"></path>
+          </svg>
+        </button>
+        <br /> <br /> <br />
+        <button
+          onClick={handleLogout}
+          style={{
+            padding: "10px 20px",
+            fontSize: "1rem",
+            cursor: "pointer",
+            background: "#25369d",
+            borderRadius: "8px",
+            color: "white",
+          }}
+        >
+          LogOut
+        </button>
+      </div>
     </div>
   );
 };
