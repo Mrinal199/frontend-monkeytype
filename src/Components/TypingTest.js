@@ -167,17 +167,23 @@ const TypingTest = ({ token }) => {
           }}
         />
       </div>
-      <div style={{display:"flex", justifyContent:"space-around", alignItems:"flex-end"}}>
-        <p style={{ fontSize: "1.2rem", marginTop: "5%" }}>
-          Time left: {time}s
-        </p>
-        {/* <button
+
+      <p style={{ fontSize: "1.2rem", marginTop: "5%" }}>Time left: {time}s</p>
+      {/* <button
         onClick={handleSubmit}
         disabled={time > 0}
         style={{ padding: "10px 20px", fontSize: "1rem", cursor: "pointer" }}
       >
         Submit
       </button> */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap:"1rem",
+          alignItems: "center",
+        }}
+      >
         <button
           onClick={() => {
             setText(getRandomQuote());
