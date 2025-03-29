@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom";
 import { saveSession } from "./apis";
 
 const TypingTest = ({ token }) => {
@@ -26,6 +26,7 @@ const TypingTest = ({ token }) => {
   const [errors, setErrors] = useState(0);
   const [correctChars, setCorrectChars] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const textareaRef = useRef(null);
   const navigate = useNavigate();
 
@@ -33,8 +34,10 @@ const TypingTest = ({ token }) => {
     if (hasStarted && time > 0) {
       const timer = setTimeout(() => setTime(time - 1), 1000);
       return () => clearTimeout(timer);
+    } else if (time === 0 && !isSubmitted) {
+      handleSubmit();
     }
-  }, [hasStarted, time]);
+  }, [hasStarted, time, isSubmitted]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -82,6 +85,8 @@ const TypingTest = ({ token }) => {
   };
 
   const handleSubmit = async () => {
+    if (isSubmitted) return;
+    setIsSubmitted(true);
     const elapsedTime = (30 - time) / 60; // Convert seconds to minutes
     const wpm = (correctChars / 5 / elapsedTime).toFixed(2); // WPM calculation
     const accuracy = ((1 - errors / text.length) * 100).toFixed(2);
@@ -163,17 +168,55 @@ const TypingTest = ({ token }) => {
         />
       </div>
       <p style={{ fontSize: "1.2rem", marginTop: "5%" }}>Time left: {time}s</p>
-      <button
+      {/* <button
         onClick={handleSubmit}
         disabled={time > 0}
         style={{ padding: "10px 20px", fontSize: "1rem", cursor: "pointer" }}
       >
         Submit
+      </button> */}
+      <button
+        onClick={() => {
+          setText(getRandomQuote());
+          setInput("");
+          setErrors(0);
+          setCorrectChars(0);
+          setHasStarted(false);
+        }}
+        style={{
+          padding: "10px 20px",
+          fontSize: "1rem",
+          cursor: "pointer",
+          background: "lightgreen",
+          borderRadius:"80px"
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="black"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0115.02-5.36L23 10"></path>
+          <path d="M20.49 15a9 9 0 01-15.02 5.36L1 14"></path>
+        </svg>
       </button>
       <br /> <br /> <br />
       <button
         onClick={handleLogout}
-        style={{ padding: "10px 20px", fontSize: "1rem", cursor: "pointer", background:"lightblue" }}
+        style={{
+          padding: "10px 20px",
+          fontSize: "1rem",
+          cursor: "pointer",
+          background: "lightblue",
+        }}
       >
         LogOut
       </button>
