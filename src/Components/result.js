@@ -8,7 +8,7 @@ const Results = () => {
 
   return (
     <div style={{ textAlign: "center", fontFamily: "monospace", marginTop: "20px" }}>
-      <h1>Typing Test Results</h1>
+      <h1 style={{color:"#25369d"}}>Typing Test Results</h1>
       <p style={{ fontSize: "1.5rem" }}>Speed: {wpm} WPM</p>
       <p style={{ fontSize: "1.5rem" }}>Accuracy: {accuracy}%</p>
       <p style={{ fontSize: "1.2rem", color:"#dc3545"}}>Total Errors: {errors}</p>
