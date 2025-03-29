@@ -22,7 +22,7 @@ const TypingTest = ({ token }) => {
 
   const [text, setText] = useState(getRandomQuote());
   const [input, setInput] = useState("");
-  const [time, setTime] = useState(30);
+  const [time, setTime] = useState(60);
   const [errors, setErrors] = useState(0);
   const [correctChars, setCorrectChars] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
