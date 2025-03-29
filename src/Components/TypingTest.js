@@ -117,7 +117,7 @@ const TypingTest = ({ token }) => {
         marginTop: "20px",
       }}
     >
-      <h1>Calculate - Typing - Speed - Accuracy</h1>
+      <h1>monkeyType</h1>
       <div
         style={{
           width: "70%",
