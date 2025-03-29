@@ -9,12 +9,14 @@ const Login = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [signupData, setSignupData] = useState({ username: "", email: "", password: "" });
   const [signupError, setSignupError] = useState("");
+  const [isLoading, setIsLoading] = useState(false); 
   
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setIsLoading(false);
 
     try {
       const res = await login({ email, password }); 
@@ -26,12 +28,15 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed. Try again.");
+    } finally {
+      setIsLoading(false); // Hide loading indicator
     }
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
     setSignupError("");
+    setIsLoading(true);
 
     try {
       await signup(signupData); // Use signup function
@@ -41,6 +46,8 @@ const Login = () => {
       alert("User registered successfully! Please login.");
     } catch (err) {
       setSignupError(err.response?.data?.message || "Registration failed.");
+    } finally {
+      setIsLoading(false); // Hide loading indicator
     }
   };
 
@@ -65,7 +72,7 @@ const Login = () => {
           required
           style={styles.input}
         />
-        <button type="submit" style={styles.button}>Login</button>
+        <button type="submit" style={styles.button} disabled={isLoading}>{isLoading ? "Please wait..." : "Login"}</button>
       </form>
 
       <button onClick={() => setIsModalOpen(true)} style={styles.signupButton}>Sign Up</button>
@@ -100,9 +107,9 @@ const Login = () => {
                 required
                 style={styles.input}
               />
-              <button type="submit" style={styles.button}>Register</button>
+              <button type="submit" style={styles.button} disabled={isLoading}>{isLoading ? "Please wait..." : "Register"}</button>
             </form>
-            <button onClick={() => setIsModalOpen(false)} style={styles.closeButton}>Close</button>
+            <button onClick={() => setIsModalOpen(false)}  style={styles.closeButton}>Close</button>
           </div>
         </div>
       )}
